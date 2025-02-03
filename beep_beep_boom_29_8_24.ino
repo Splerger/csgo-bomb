@@ -45,6 +45,11 @@ void boom() {
     text = "";
     i = 0;
     lcd.clear();
+    lcd.print("U forgot");
+    lcd.setCursor(0,1);
+    lcd.print("to press button");
+    delay(1500);
+    lcd.clear();
     return;
   }
 
