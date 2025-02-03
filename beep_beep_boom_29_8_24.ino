@@ -56,8 +56,14 @@ void boom() {
     Serial.println(b);
 
     lcd.clear();
-    lcd.print("0:");
-    lcd.print(num - b);
+
+    if (num - b < 10) {
+      lcd.print("0:0");
+      lcd.print(num - b);
+    } else {
+      lcd.print("0:");
+      lcd.print(num - b);
+    }
   }
 
   boomd = true;
@@ -70,6 +76,7 @@ void boom() {
   lcd.clear();
 
   text = "";
+  i = 0;
   boomd = false;
 }
 
@@ -112,13 +119,11 @@ void loop(){
     }
     lcd.setCursor(i,0);
     lcd.print(customKey);
-    Serial.println(customKey);
-    Serial.println(text);
     i = i+1;
 
     text = text + customKey;
 
-    //Serial.println(text);
+    Serial.println(text);
 
     delay(150);
     i = i-1;
