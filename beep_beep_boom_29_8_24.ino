@@ -57,6 +57,15 @@ void boom() {
 
     lcd.clear();
 
+    char customKey = customKeypad.getKey();
+    
+    if (customKey) {
+      Serial.println(customKey);
+      if (customKey == 'C') {
+        reboot();
+      }
+    }
+
     if (num - b < 10) {
       lcd.print("0:0");
       lcd.print(num - b);
